@@ -1,0 +1,248 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block "content" %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .alert-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            margin-bottom: 30px;
+            padding: 25px;
+        }
+
+        .alert-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .alert-card h2 {
+            color: #007bff;
+            font-size: 1.8rem;
+        }
+
+        .alert-card p {
+            font-size: 1rem;
+            color: #555;
+            margin: 10px 0;
+        }
+
+        .alert-card strong {
+            color: #333;
+        }
+
+        .alert-card pre {
+            background: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-height: 300px;
+            overflow-y: auto;
+            font-size: 0.9rem;
+        }
+
+        .alert-card a {
+            color: #28a745;
+            text-decoration: none;
+        }
+
+        .alert-card a:hover {
+            text-decoration: underline;
+        }
+
+        .no-alert {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #ff4d4d;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        .solution-box {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-size: 1rem;
+            color: #2e7d32;
+            position: relative;
+        }
+
+        .solution-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-edit, .btn-apply, .btn-ai-local, .btn-ai-openai {
+            transition: all 0.3s;
+        }
+
+        .btn-edit:hover {
+            background: #ffc107;
+            color: #000;
+        }
+
+        .btn-apply:hover {
+            background: #28a745;
+            color: #fff;
+        }
+
+        .btn-ai-local {
+            background: #17a2b8;
+            color: #fff;
+        }
+
+        .btn-ai-openai {
+            background: #6c757d;
+            color: #fff;
+        }
+
+        .btn-ai-local:hover {
+            background: #138496;
+            color: #fff;
+        }
+
+        .btn-ai-openai:hover {
+            background: #495057;
+            color: #fff;
+        }
+
+        .badge {
+            font-size: 0.85rem;
+            padding: 5px 10px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .solution-actions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🚨 Alert Details</h1>
+
+        {% if alert %}
+            {% for alert in alert %}
+            <div class="alert-card">
+                <h2>Status: {{ alert.status }}</h2>
+                <p><strong>Receiver:</strong> {{ alert.receiver }}</p>
+                <p><strong>Alert Name:</strong> {{ alert.commonLabels_alertname }}</p>
+                <p><strong>Namespace:</strong> {{ alert.commonLabels_namespace }}</p>
+                <p><strong>Pod:</strong> {{ alert.commonLabels_pod }}</p>
+                <p><strong>Severity:</strong> 
+                    <span class="badge {% if alert.commonLabels_severity == 'critical' %}bg-danger{% elif alert.commonLabels_severity == 'warning' %}bg-warning{% else %}bg-info{% endif %}">
+                        {{ alert.commonLabels_severity }}
+                    </span>
+                </p>
+                <p><strong>Summary:</strong> {{ alert.commonAnnotations_summary }}</p>
+                <p><strong>Description:</strong> {{ alert.commonAnnotations_description }}</p>
+                <p><strong>External URL:</strong> 
+                    <a href="{{ alert.externalURL }}" target="_blank">{{ alert.externalURL }}</a>
+                </p>
+                <p><strong>Logs:</strong></p>
+                <pre>{{ alert.logs }}</pre>
+                <p><strong>Events:</strong></p>
+                <pre>{{ alert.events }}</pre>
+
+                <!-- ✅ Solution Section -->
+                {% if alert.solution %}
+                <div class="solution-box">
+                    <h4>✅ Suggested Solution</h4>
+                    <p>{{ alert.solution }}</p>
+
+                    <!-- 🚀 Edit, Apply, and AI Assistance Buttons -->
+                    <div class="solution-actions">
+                        <button class="btn btn-warning btn-edit">✏️ Edit Solution</button>
+                        <button class="btn btn-success btn-apply">✅ Apply Solution</button>
+                        <button class="btn btn-ai-local">🛠️ AI Assistance (Local)</button>
+                        <button class="btn btn-ai-openai">🌐 AI Assistance (OpenAI)</button>
+                    </div>
+                </div>
+                {% else %}
+                <p class="text-muted">No solution available for this alert.</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        {% else %}
+            <p class="no-alert">⚠️ No alert data available.</p>
+        {% endif %}
+    </div>
+
+    <footer class="footer">
+        &copy; {{ year }} Alert Monitoring System
+    </footer>
+
+    <script>
+        // Example interactions for the buttons
+        document.querySelectorAll('.btn-edit').forEach(button => {
+            button.addEventListener('click', () => {
+                alert('Edit button clicked. You can add your custom action here!');
+            });
+        });
+
+        document.querySelectorAll('.btn-apply').forEach(button => {
+            button.addEventListener('click', () => {
+                alert('Apply button clicked. You can add your custom action here!');
+            });
+        });
+
+        document.querySelectorAll('.btn-ai-local').forEach(button => {
+            button.addEventListener('click', () => {
+                alert('Local AI assistance triggered. Add your local model API call here.');
+            });
+        });
+
+        document.querySelectorAll('.btn-ai-openai').forEach(button => {
+            button.addEventListener('click', () => {
+                alert('OpenAI assistance triggered. Add your OpenAI API call here.');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
+{% endblock %}

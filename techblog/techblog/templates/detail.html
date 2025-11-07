@@ -1,0 +1,41 @@
+
+
+
+<h2>{{ blog.title }}</h2>
+<p>{{ blog.content }}</p>
+
+<h3>Comments</h3>
+{% for comment in comments %}
+    <div class="comment">
+        <p>{{ comment.content }}</p>
+        <p>By: {{ comment.user }}</p>
+        {% for reply in comment.replies.all %}
+            <div class="reply">
+                <p>{{ reply.content }}</p>
+                <p>By: {{ reply.user }}</p>
+            </div>
+        {% empty %}
+            <p>No replies yet.</p>
+        {% endfor %}
+        <form method="POST" action="{% url 'add_reply' comment.id %}">
+            {% csrf_token %}
+            {{ reply_form }}
+            <button type="submit">Reply</button>
+        </form>
+    </div>
+{% empty %}
+    <p>No comments yet.</p>
+{% endfor %}
+
+<h3>Add a Comment</h3>
+<form method="POST" action="{% url 'add_comment' blog.id %}">
+    {% csrf_token %}
+    {{ comment_form }}
+    <button type="submit">Submit Comment</button>
+</form>
+
+<h3>Likes: {{ blog.likes.count }}</h3>
+<form method="POST" action="{% url 'add_like' blog.id %}">
+    {% csrf_token %}
+    <button type="submit">{% if user in blog.likes.all %}Unlike{% else %}Like{% endif %}</button>
+</form>

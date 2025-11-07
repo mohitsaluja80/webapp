@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alert Dashboard</title>
+</head>
+<body>
+    <h2>Latest Alert</h2>
+    <p>{{ latest_alert|default:"No alerts found." }}</p>
+
+    <h2>AI Troubleshooting Suggestion</h2>
+    <p>{{ ai_suggestion|default:"No AI suggestions available." }}</p>
+</body>
+</html>

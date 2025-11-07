@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block "content" %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;  }
+  .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+  .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); align-content: center;  }
+  .card h2 { margin-top: 0 }
+  table {
+width: 100%;
+border-collapse: collapse; /* Removes double borders */
+margin: 20px 0;
+font-size: 16px;
+text-align: left;
+}
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #3498db;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+td {
+    font-size: 18px;
+}
+
+td:has(.success) {
+    color: green;
+    font-weight: bold;
+}
+
+td:has(.failed) {
+    color: red;
+    font-weight: bold;
+}
+
+th, td {
+padding: 12px 20px; /* Adds spacing inside cells */
+border-bottom: 1px solid #8eb2e9; /* Adds a subtle line */
+}
+
+th {
+background-color: #007bff; /* Blue header background */
+color: white;
+font-weight: bold;
+text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+background-color: #f8f9fa; /* Light gray for alternate rows */
+}
+
+tr:hover {
+background-color: #e9ecef; /* Slight highlight on hover */
+transition: 0.3s;
+}
+
+td {
+vertical-align: middle; /* Aligns text in the middle */
+}
+</style>
+
+<main id="main">
+  <!-- ======= Breadcrumbs ======= -->
+  <div class="breadcrumbs">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>LAB</h2>
+        <ol>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li>LAB</li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- End Breadcrumbs -->
+
+  <section id="lab" class="blog">
+    <div class="container" data-aos="fade-up">
+            <div class="card">
+                {% for alert in alert %}
+                <table>
+              <!-- <h2> <i class="fa-solid fa-gears"></i> Jenkins (CI) </h2> -->
+              <tr><td>Alert:</td><td>{{ alert.groupLabels_alertname }} </td></tr>
+              <tr><td>Logs:</td><td>{{ alert.logs|linebreaksbr }}</td></tr>
+              <tr><td>events:</td><td>{{ alert.events }}</td></tr> 
+             </table>
+          </div>
+                {% endfor %}
+ 
+          </div>
+      </div>
+  </div>
+</div><!-- End container -->
+</section><!-- End Blog Section -->
+
+</main>
+{% endblock %}

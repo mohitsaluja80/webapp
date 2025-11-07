@@ -1,0 +1,10 @@
+<!-- subscribe.html -->
+<h1>Subscribe</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.email }}
+    <button type="submit">Subscribe</button>
+</form>
+
+<!-- sent.html -->
+<h1>Newsletter sent</h1>

@@ -1,0 +1,14 @@
+<!-- templates/account/activation_email.html -->
+
+{% autoescape off %}
+Hi {{ user.username }},
+
+Please click the following link to verify your email address and complete your registration:
+
+{{ verification_url }}
+
+If you didn't register on our site, please ignore this email.
+
+Thanks,
+The {{ domain }} Team
+{% endautoescape %}

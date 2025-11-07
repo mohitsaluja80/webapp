@@ -1,0 +1,49 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata: 
+  name: p1
+  namespace: team-orange
+spec:
+  egressDeny:
+  - toEndpoints:
+    - matchLabels: 
+        type: database
+  endpointSelector:
+    matchLabels:
+      type: messanger   
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: p2
+  namespace: team-orange
+spec:
+  endpointSelector:
+    matchLabels:
+      type: transmitter
+  egressDeny:
+  - icmps:
+    - fields:
+      - family: IPv4
+        type: EchoReply
+      - family: IPv6
+        type: 8
+    toEndpoints:
+    - matchLabels:
+        type: database  
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: p3
+  namespace: team-orange
+spec:
+  endpointSelector:
+    matchLabels:
+      type: database 
+  egress:
+  - authentication:
+      mode: required
+    toEndpoints:
+    - matchLabels:
+        type: messenger

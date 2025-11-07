@@ -1,0 +1,217 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block "content" %}
+<head>
+  <link href="{% static 'ckeditor/ckeditor/plugins/codesnippet/lib/highlight/styles/default.css' %}" rel="stylesheet"> 
+  <script src="{% static 'ckeditor/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js' %}"></script>  
+  <script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+<link href="{% static 'ckeditor/ckeditor/plugins/codesnippet/lib/highlight/styles/default.css' %}" rel="stylesheet">
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<main id="main">
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <!-- Include Breadcrumbs section here if needed -->
+    </div>
+
+    <!-- Blog Details Section -->
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+            <div class="row g-5">
+                {% for post in Post %}
+                <div class="col-lg-8">
+                    <article class="blog-details">
+                        <div class="title">{{ post.title }}</div>
+                        <div class="meta-top">
+                            <ul>
+                              <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">{{ post.author }}</a></li>
+                              <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html">{{ post.date_posted }}</a></li>
+                              <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">{{ comments_count }}</a></li>
+                              <li class="d-flex align-items-center"><i class="bi bi-hand-thumbs-up-fill"></i> <a href="{% url 'add_like' blog.id %}">{{ blog.likes.count }}
+                                <form method="POST" action="{% url 'add_like' blog.id %}">
+                                  {% csrf_token %}
+                                  {% if user in blog.likes.all %}
+                                  like
+                                  {% else %}
+            
+                                 
+                                  {% endif %}
+                              </form>
+            
+            
+                              </a></li>
+                            </ul>
+                          </div><!-- End meta top -->
+            
+
+
+
+
+
+                        <div class="content">{{ post.content|safe }}</div>
+                        {% if post.author == user or user.is_staff %}
+                        <form method="POST" action="{% url 'delete_post' post.id %}">
+                         {% csrf_token %}
+                          <button type="submit" class="btn btn-danger">Delete</button>
+                         </form>
+                         {% endif %}
+
+                        <!-- Comment Form for the Post -->
+                        <div class="comment-form mt-4">
+                            <h4 class="mb-3">Leave a Comment</h4>
+                            <button class="comment-toggle btn btn-primary mb-3">Comment</button>
+
+                            <form class="comment-input" style="display: none;" method="POST" action="{% url 'add_comment' post.id %}">
+                                {% csrf_token %}
+                                {{ comment_form.content }} 
+                                <button type="submit" class="btn btn-primary">Post Comment</button>
+                            </form>
+                        </div>
+                    </article>
+
+
+
+
+
+
+                    <!-- Comments Section -->
+                    <div class="blog-details">
+                        <h4 class="comments-count mt-4">{{ post.comments.count }} Comments</h4>
+
+                        {% for comment in post.comments.all %}
+                        <div class="comment-container border p-3 mt-3">
+                            <div class="comment">
+                                <div class="post">
+                                    <p>{{ comment.content|safe }}</p>
+                                    <div class="col-lg-6">User: {{ comment.user }}</div>
+                                    <div class="col-lg-6">Date Posted: {{ comment.date_posted|date:"D d M Y H:i" }}</div>
+                                </div>
+                                {% if comment.user == user or user.is_staff %}
+                                <form method="POST" action="{% url 'delete_comment' comment.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger mt-3">Delete</button>
+                                </form>
+                                {% endif %}
+                            </div>
+
+                            <!-- Replies for each comment -->
+                            <div class="replies-container mt-3">
+                                {% for reply in comment.replies.all %}
+                                <div class="reply border p-2 mt-3">
+                                    <div class="reply-post">
+                                        <p>{{ reply.content|safe }}</p>
+                                    </div>
+                                    {% if reply.user == user or user.is_staff %}
+                                    <form method="POST" action="{% url 'delete_reply' reply.id %}">
+                                     {% csrf_token %}
+                                     <button type="submit" class="btn btn-danger">Delete</button>
+                                     </form>
+                                  {% endif %}
+                                </div>
+                                {% endfor %}
+                                
+                            </div>
+
+                            <!-- Reply Button -->
+                            <div class="reply-container mt-3">
+                                <button class="reply-toggle btn btn-primary">Reply</button>
+                            </div>
+
+                            <!-- Reply Form for each comment -->
+                            <form class="reply-form mt-3" style="display: none;" method="POST" action="{% url 'add_reply' comment.id %}">
+                                {% csrf_token %}
+                                {{ reply_form }}
+                                <button type="submit" class="btn btn-primary">Submit Reply</button>
+                            </form>
+                        </div>
+                        
+                        {% endfor %}
+
+                    </div>
+               
+                    
+                </div>
+                <div class="col-lg-4">
+                    <div class="sidebar">
+                      <div class="sidebar-item search-form">
+                        <h3 class="sidebar-title">Search</h3>
+                        <form action="" class="mt-3">
+                          <input id="search" name="search" type="text">
+                          <button type="submit"><i class="bi bi-search"></i></button>
+                        </form>
+                      </div>
+                      <div class="sidebar-item categories">
+                        <h3 class="sidebar-title">Categories</h3>
+                        <ul class="mt-3">
+                          {% for key, value in tag_data.items %}
+                          <li><a href="#">{{ key }} <span>{{ value }}</span></a></li>
+                          {% endfor %}
+                        </ul>
+                      </div>
+                      <div class="sidebar-item recent-posts">
+                        <h3 class="sidebar-title">Recent Posts</h3>
+                        <div class="mt-3">
+                          {% for post in Post %}
+                          <div class="post-item mt-3">
+                            <!-- <img src="{% static 'assets/img/blog/blog-recent-1.jpg' %}" alt="" class="flex-shrink-0"> -->
+                            <div>
+                              <h4><a href="blog-details.html">{{ post.title }}</a></h4>
+                              {{ post.date_posted }}
+                            </div>
+                          </div>
+                          {% endfor %}
+                        </div>
+                        <div class="sidebar-item tags">
+                            <h3 class="sidebar-title">Tags</h3>
+                            <ul class="mt-3">
+                              {% for tag in all_tags %}
+                              <li><a href="{% url 'blogsfilter' tag.id %}">{{ tag }}</a></li>
+                              {% endfor %}
+                              <li><a href="{% url 'blogs' %}">All</a></li>
+                            </ul>
+                          </div>
+                    </div>
+                {% endfor %}
+                
+
+                <!-- Sidebar Section -->
+                <!-- Include Sidebar content here if needed -->
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    
+
+</main>
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<!-- JS scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.reply-toggle').click(function() {
+            $(this).closest('.comment-container').find('.reply-form').toggle();
+        });
+
+        $('.comment-toggle').click(function() {
+            $(this).siblings('.comment-input').toggle();
+        });
+    });
+</script>
+
+{% endblock %}

@@ -1,0 +1,157 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Home</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Variables CSS Files. Uncomment your preferred color scheme -->
+  <!-- <link href="{% static 'assets/css/variables.css' %}" rel="stylesheet"> -->
+  {% if color_scheme == 'blue'%}
+  <link href="{% static 'assets/css/variables-blue.css' %}" rel="stylesheet">
+  {% elif  color_scheme == 'green' %} 
+  <link href="{% static 'assets/css/variables-green.css' %}" rel="stylesheet">
+  {% elif  color_scheme == 'orange' %} 
+  <link href="{% static 'assets/css/variables-orange.css' %}" rel="stylesheet">
+  {% elif  color_scheme == 'purple' %} 
+  <link href="{% static 'assets/css/variables-purple.css' %}" rel="stylesheet">
+  {% elif  color_scheme == 'red' %} 
+  <link href="{% static 'assets/css/variables-red.css' %}" rel="stylesheet">
+  {% elif  color_scheme == 'pink' %} 
+  <link href="{% static 'assets/css/variables-pink.css' %}" rel="stylesheet">
+   {% endif %}
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+
+
+
+
+  <!-- =======================================================
+  * Template Name: Cloudmesh
+  * Updated: Mar 10 2023 with Bootstrap v5.2.3
+  * Template URL: https://bootstrapmade.com/Cloudmesh-bootstrap-business-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top" data-scrollto-offset="0">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1>{{ addressData.0.website_name }}<span>.</span></h1>
+      </a>
+      <nav id="navbar" class="navbar" >
+       <ul>
+          <li><a class="nav-link scrollto" href="{% url 'home' %}">Home</a></li>
+          
+         
+          <!-- <li><a class="nav-link scrollto" href="index.html#services">Services</a></li>  -->
+          <!-- <li><a class="nav-link scrollto" href="index.html#portfolio">Portfolio</a></li> -->
+          <!-- <li><a class="nav-link scrollto" href="index.html#team">Team</a></li> -->
+           <!-- <li><a href="blog.html">Blog</a></li> -->
+
+          <!-- <li class="dropdown megamenu"> <a href="{% url 'home' %}#services">Services<i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+    
+                  {% if serviceData %}
+                <li>
+                  {% if serviceData.0.service_name %}
+                  <a href="{% url serviceData.0.service_url %}"> {{  serviceData.0.service_name }}</a>
+                  {% endif %}
+                  {% if serviceData.1.service_name %}
+                  <a href="{% url serviceData.1.service_url %}"> {{  serviceData.1.service_name }}</a>
+                  {% endif %}
+                </li>
+                <li>
+                  {% if serviceData.2.service_name %}
+                  <a href="{% url serviceData.2.service_url %}"> {{ serviceData.2.service_name }}</a>
+                  {% endif %}
+                  {% if serviceData.3.service_name %}
+                  <a href="{% url serviceData.3.service_url %}"> {{ serviceData.3.service_name }}</a>
+                  {% endif %}
+                </li>
+                <li>
+                  {% if serviceData.4.service_name %}
+                  <a href="{% url serviceData.4.service_url%}"> {{ serviceData.4.service_name }}</a>
+                  {% endif %}
+                  {% if serviceData.5.service_name %}
+                  <a href="{% url serviceData.5.service_url %}"> {{ serviceData.5.service_name }}</a>
+                  {% endif %}
+                </li>
+                <li>
+                  {% if serviceData.6.service_name %}
+                  <a href="{% url serviceData.6.service_url %}"> {{ serviceData.6.service_name }}</a>
+                  {% endif %}
+                  {% if serviceData.7.service_name %}
+                  <a href="{% url serviceData.7.service_url %}"> {{ serviceData.7.service_name }}</a>
+                  {% endif %}
+                </li>
+                
+                  {% endif %}
+             
+            
+            </ul>
+          </li> -->
+          <!-- <li class="dropdown"><a href="#"><span>Resources</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="#">IoC</a></li>
+              <li class="dropdown"><a href="#"><span>Demos</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                  <li><a href="#">CICD</a></li>
+                  <li><a href="#">Observability Dashboards</a></li>
+                  <li><a href="#">Kubernetes Monitoring</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Observeability</a></li>
+              <li><a href="#">Monitoring</a></li>
+            </ul>
+          </li> -->
+          <li><a class="nav-link scrollto" href="{% url 'home' %}#about">About Me</a></li>
+          
+          <li><a class="nav-link scrollto" href="{% url 'home' %}#contact">Contact Me</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'blogs' %}">Blogs</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'home' %}#portfolio">Cerifications</a></li>        </ul>
+        <i class="bi bi-list mobile-nav-toggle d-none"></i>
+      </nav><!-- .navbar -->
+      {% if request.user.is_authenticated %}
+      <span>
+         Hello,{{ request.user }}  
+         <a class="btn-getstarted scrollto" href="{% url 'logout' %}">Logout</a>
+      </span>
+      {% else %}
+      <span> </span>
+      <span> </span>
+      <a class="btn-getstarted scrollto" href="{% url 'loginpage' %}">Login</a>
+      {% endif %}
+      </div>
+   
+  </header><!-- End Header -->

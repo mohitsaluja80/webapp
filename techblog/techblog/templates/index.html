@@ -1,0 +1,1097 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block "content" %}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero carousel  carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="container">
+          <div class="row justify-content-center gy-6">
+
+            <div class="col-lg-5 col-md-8">
+              <img src="{% static 'assets/img/home.png' %}" alt="" class="img-fluid img" height="1000", width="800">
+            </div>
+
+            <div class="col-lg-12 ">
+
+              <div class="section-header">
+              <h2>Welcome to my page</h2>
+            </div>
+              <p>I am a seasoned senior consultant with over two decades of experience excelling in the management of diverse infrastructure landscapes, encompassing both Cloud and On-prem environments. Throughout my career, I have cultivated expertise in leading Site Reliability Engineering (SRE), DevOps, and operations teams, leveraging this knowledge to drive organizational success.
+
+                My proficiency in DevOps and CI/CD practices, coupled with a deep understanding of various toolchains, positions me as a valuable asset in transforming and optimizing processes within organizations. With a proven track record of assisting teams in implementing efficient CI/CD pipelines and enhancing DevOps practices, I am well-equipped to provide strategic guidance and implement best practices in <a href="" class="typewrite" data-period="1000" data-type='[ "DevOps", "CICD","Cloud", "SRE"]'>
+          <span class="wrap"></span>
+        </a>
+        </p>
+
+
+              <!-- Calendly link widget begin -->
+              
+              
+              <link href="https://assets.calendly.com/assets/external/widget.css"  rel="stylesheet">
+            <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+            <!-- <a href=""  onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mohitsaluja/30min'});return false;">Book Meeting</a> -->
+            <div class="section-header">
+            <a href=""  class="btn-get-started" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mohitsaluja/30min'});return false;">Book Meeting</a>
+          </div>
+<!-- Calendly link widget end -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- End Carousel Item -->
+
+      <!-- <div class="carousel-item">
+        <div class="container">
+          <div class="row justify-content-center gy-6">
+
+            <div class="col-lg-5 col-md-8">
+             <img src="assets/img/home.png" alt="" class="img-fluid img" width="500" height="800"> 
+            </div>
+
+            <div class="col-lg-9 text-center">
+              <h2>At vero eos et dsd</h2>
+              <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut.</p>
+              <a href="#featured-services" class="btn-get-started scrollto ">Get Started</a>
+            </div>
+
+          </div>
+        </div>
+      </div> 
+
+      <div class="carousel-item">
+        <div class="container">
+          <div class="row justify-content-center gy-6">
+
+            <div class="col-lg-5 col-md-8">
+              <img src="assets/img/home.png" alt="" class="img-fluid img">
+            </div>
+
+            <div class="col-lg-9 text-center">
+              <h2>Temporibus autem quibusdam</h2>
+              <p>Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt omnis iste natus error sit voluptatem accusantium.</p>
+              <a href="#featured-services" class="btn-get-started scrollto ">Get Started!</a>
+            </div>
+
+          </div>
+        </div>
+      </div> -->
+   
+
+    <!-- <a class="carousel-control-prev" href="#hero" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+    </a>
+
+    <a class="carousel-control-next" href="#hero" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+    </a>
+
+    <ol class="carousel-indicators"></ol>
+
+  </section> --><!-- End Hero Section --> 
+
+  <main id="main">
+
+    
+    <!-- ======= Featured Services Section ======= -->
+    
+     
+
+
+{% if about %}
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>About Me</h2>
+          <p></p>
+        </div>
+    
+        <div class="row g-4 g-lg-5" data-aos="fade-up" data-aos-delay="200">
+
+          <!-- <div class="col-lg-5">
+            <div class="about-img">
+              <img src="{% static 'assets/img/Mohit.jpg' %}" class="img-fluid" alt="">
+            </div>
+          </div>
+        -->
+
+          <div class="col-lg-12">
+            <!-- <p class="pt-0 pt-lg-5">
+
+            </p> -->
+            <!-- Tabs -->
+            
+            <ul class="nav nav-pills mb-3 justify-content-center">
+            
+              <li><a class="nav-link active" data-bs-toggle="pill" href="#tab1">Key Areas of Expertise</a></li>
+              <li><a class="nav-link" data-bs-toggle="pill" href="#tab2">Technical Skills</a></li>
+              <li><a class="nav-link" data-bs-toggle="pill" href="#tab3">Professional Experience</a></li>
+             
+            </ul><!-- End Tabs -->
+            <!-- Tab Content -->
+      
+            <div class="tab-content">
+
+              <div class="tab-pane fade show active" id="tab1"> 
+
+           
+
+                <div class="d-flex align-items-center mt-4">
+                  <i class="bi bi-check2"></i>
+                  <h4>Infrastructure Operations & Management</h4>
+                </div>
+                <p>As an Infrastructure and Operations Management expert, I specialize in the seamless integration and maintenance of an organization's technological backbone. With extensive experience in managing complex IT environments, I ensure high availability, robust security, and optimal performance across all infrastructure components, including data centers, network architectures, servers, storage solutions, and cloud environments. My expertise enables businesses to operate efficiently and adapt swiftly to evolving market demands.
+                  I am adept at implementing industry best practices and frameworks such as ITIL and COBIT, which standardize processes and enhance service delivery. My proactive approach to infrastructure management includes regular updates, patch management, and comprehensive incident response planning, all aimed at minimizing downtime and ensuring continuous service availability. Leveraging advanced tools and automation, I streamline workflows and maintain the health of IT systems, consistently delivering operational excellence and superior customer satisfaction.</p>
+
+                <div class="d-flex align-items-center mt-4">
+                  <i class="bi bi-check2"></i>
+                  <h4>DevOps & CI/CD</h4>
+                </div>
+                <p>As a CI/CD (Continuous Integration and Continuous Delivery) expert, I specialize in optimizing and automating the software development lifecycle to ensure rapid, reliable, and high-quality code deployment. With extensive experience in designing and managing CI/CD pipelines, I facilitate seamless integration and continuous delivery processes, enabling development teams to collaborate efficiently and deliver software updates at an accelerated pace.
+                  I am proficient in implementing industry best practices and tools such as Jenkins, GitLab CI, and CircleCI, which streamline code integration, testing, and deployment. My expertise includes setting up automated testing frameworks, managing version control systems, and ensuring code quality through rigorous testing and continuous feedback loops. By leveraging advanced automation techniques, I minimize manual intervention, reduce the risk of errors, and enhance the overall agility of the development process. My commitment to continuous improvement and operational excellence drives the successful and timely delivery of software products, ultimately contributing to enhanced customer satisfaction and business success</p>
+
+              
+
+                <div class="d-flex align-items-center mt-4">
+                  <i class="bi bi-check2"></i>
+                  <h4>Automation</h4>
+                </div>
+                <p>
+                  As an Automation expert, I specialize in enhancing operational efficiency and reducing manual intervention through the strategic implementation of automation technologies. With extensive experience in designing and managing automated workflows, I enable organizations to streamline their processes, increase productivity, and achieve consistent, high-quality outcomes.
+I am adept at leveraging industry-leading automation tools and frameworks such as Ansible, Puppet, and Chef, which facilitate the automation of repetitive tasks and complex configurations. My expertise encompasses the development of robust automation scripts, the integration of various systems and applications, and the deployment of scalable solutions that adapt to evolving business needs. By implementing advanced automation techniques, I significantly reduce the risk of human error, accelerate task completion, and ensure seamless operations across IT environments. My focus on continuous improvement and operational excellence drives the successful and efficient execution of business processes, ultimately contributing to enhanced performance and competitive advantage.
+                </i></p>
+
+
+                <div class="d-flex align-items-center mt-4">
+                  <i class="bi bi-check2"></i>
+                  <h4>Leadership</h4>
+                </div>
+                <p>
+                  As a leader in the DevOps, CI/CD, and support realm, I possess a unique blend of expertise that enables me to navigate the complexities of managing infrastructure with finesse. My focus on resolving people, process, and technology issues showcases my commitment to holistic problem-solving. By aiming to build skilled teams and driving towards operational excellence, I set a high standard for those around you to follow.
+
+My leadership not only lies in my technical prowess but also in my ability to lead by example through impactful contributions. My creative approach to tackling challenges and fostering a collaborative environment demonstrates my innovation and vision for the future of my team. Keep inspiring and paving the way for operational excellence with my leadership style that blends technical prowess with a people-centric focus.
+                </i></p>
+
+
+
+             
+
+
+
+              </div><!-- End Tab 1 Content -->
+
+              <div class="tab-pane fade show" id="tab2">
+                
+                <div class="d-flex align-items-center mt-4">
+                  <i class="bi bi-check2"></i>
+                  <h4>Kubernetes</h4>
+                </div>
+                <p>As a Kubernetes expert, I specialize in deploying, scaling, and managing containerized applications to ensure seamless orchestration and high availability across clusters. My extensive experience with Kubernetes enables organizations to efficiently handle complex IT environments. By leveraging Kubernetes' powerful capabilities, I ensure that applications are resilient, scalable, and maintain optimal performance. My proficiency includes setting up and managing Kubernetes clusters, automating deployments, and implementing best practices for container orchestration, which together drive operational efficiency and reliability.
+                </i></p>
+
+                <div class="d-flex align-items-center mt-4">
+                  <i class="bi bi-check2"></i>
+                  <h4>Terraform</h4>
+                </div>
+                <p>As a Terraform specialist, I excel in automating infrastructure provisioning and management through Infrastructure as Code (IaC). My expertise with Terraform allows me to create reproducible, version-controlled infrastructure configurations that ensure consistency and scalability across environments. By leveraging Terraform, I enable organizations to manage their infrastructure efficiently, adapt quickly to changing business requirements, and maintain robust and reliable systems. My proficiency includes writing and managing Terraform scripts, integrating Terraform with CI/CD pipelines, and implementing best practices for infrastructure automation.
+                </i></p>
+
+                <div class="d-flex align-items-center mt-4">
+                  <i class="bi bi-check2"></i>
+                  <h4>Scripting</h4>
+                </div>
+                <p>As an expert in Python scripting, I develop powerful automation solutions that enhance operational efficiency and reduce manual intervention. My proficiency in Python enables me to create robust scripts for system administration, data processing, and integration tasks. By leveraging Python, I streamline workflows, accelerate task completion, and ensure error-free operations. My expertise includes writing custom automation scripts, integrating Python with various tools and APIs, and implementing best practices for script development. This focus on automation through Python drives increased productivity and operational excellence
+                </i></p>
+
+                <div class="d-flex align-items-center mt-4">
+                  <i class="bi bi-check2"></i>
+                  <h4>Monitoring Tools</h4>
+                </div>
+                <p>Experienced in using Zabbix, Prometheus, and Grafana for comprehensive infrastructure monitoring and alerting.
+                </i></p>
+
+    
+
+              </div><!-- End Tab 2 Content -->
+
+              <div class="tab-pane fade show" id="tab3">
+
+                <p Our mission is to provide exceptional IT services and solutions to our clients, empowering them to achieve their business objectives. We strive to continuously enhance our expertise and stay up-to-date with the latest technological advancements, enabling us to deliver innovative and reliable services that exceed our clients' expectations. Through our commitment to integrity, transparency, and customer satisfaction, we aim to build lasting relationships with our clients and be their trusted technology partner.</p>
+
+                <div class="d-flex align-items-center mt-4">
+                  <i class="bi bi-check2"></i>
+                  <h4>Fintech Sector</h4>
+                </div>
+                <p>12 years of specialized experience in fintech, enhancing infrastructure operations and DevOps practices.</p>
+
+                <div class="d-flex align-items-center mt-4">
+                  <i class="bi bi-check2"></i>
+                  <h4>Datacenter Management</h4>
+                </div>
+                <p>Background in managing datacenters, networking, storage, firewall, and security.</p>
+
+
+              </div><!-- End Tab 3 Content -->
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+ 
+    </section>
+    {% endif %}
+    <!-- End About Section -->
+
+    
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients">
+      <div class="section-header">
+        <h2>Tools</h2>
+        <p></p>
+      </div>
+      <div class="container" data-aos="zoom-out">
+        <div class="clients-slider swiper">
+          <div class="swiper-wrapper align-items-center">
+            <!-- <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt=""></div> -->
+            <div class="swiper-slide"><h4>Linux</h4><class="img-fluid" alt=""></div> 
+            <div class="swiper-slide"><h4>Kubernetes</h4><class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><h4>AWS</h4><class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><h4>Python</h4><class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><h4>Bash</h4><class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><h4>Zabbix</h4><class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><h4>Nagios</h4> <class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><h4>Grafana</h4><class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><h4>Prometheus</h4><class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><h4>Grafana</h4><class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><h4>Harness</h4><class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><h4>Bitbucket</h4><class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><h4>Git</h4><class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><h4>Vmware</h4><class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><h4>Oracle VM</h4><class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><h4>EKS</h4><class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><h4>Puppet</h4><class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><h4>Ansible</h4><class="img-fluid" alt=""></div>
+            
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Clients Section -->
+
+    <!-- ======= Call To Action Section ======= -->
+    <!-- <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-out">
+
+        <div class="row g-5">
+
+          <div class="col-lg-8 col-md-6 content d-flex flex-column justify-content-center order-last order-md-first">
+            <h3>Learn about our service offerings</h3>
+            <p> Discover the advantages of utilizing these services, and learn how they can accelerate your growth and reduce your expenses. </p>
+            <a class="cta-btn align-self-start" href="{% url 'home' %}#features">Call To Action</a>
+          </div>
+
+          <div class="col-lg-4 col-md-6 order-first order-md-last d-flex align-items-center">
+            <div class="img">
+              <img src="{% static 'assets/img/cta.jpg' %}" alt="" class="img-fluid">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section> -->
+    <!-- End Call To Action Section -->
+
+    <!-- ======= On Focus Section ======= -->
+    {%  if onfocus   %}
+    <section id="onfocus" class="onfocus">
+      <div class="container-fluid p-0" data-aos="fade-up">
+
+        <div class="row g-0">
+          <div class="col-lg-6 video-play position-relative">
+            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
+          </div>
+          <div class="col-lg-6">
+            <div class="content d-flex flex-column justify-content-center h-100">
+              <h3>Voluptatem dignissimos provident quasi corporis</h3>
+              <p class="fst-italic">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua.
+              </p>
+              <ul>
+                <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+              </ul>
+              <a href="#" class="read-more align-self-start"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    {% endif %}
+    <!-- End On Focus Section -->
+
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+      <div class="container" data-aos="fade-up">
+
+        <ul class="nav nav-tabs row gy-4 d-flex">
+        
+
+          <li class="nav-item col-6 col-md-4 col-lg-2">
+            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-{{ featureData.0.id }}">
+              <i class="bi {{ featureData.0.icon }} color-cyan"></i>
+              <h4>{{ featureData.0.title }}</h4>
+            </a>
+          </li><!-- End Tab 1 Nav -->
+
+
+          {% for feature in featureData|slice:"1:6" %}
+          <li class="nav-item col-6 col-md-4 col-lg-2">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-{{ feature.id }}">
+              <i class="bi {{ feature.icon }} color-indigo"></i>
+              <h4>{{ feature.title }}</h4>
+            </a>
+          </li><!-- End Tab 2 Nav -->
+          {% endfor %}
+          
+          <!-- End Tab 6 Nav -->
+
+        </ul>
+       
+       
+        <div class="tab-content">
+         
+         
+          <div class="tab-pane active show" id="tab-{{ featureData.0.id }}">
+            <div class="row gy-4">
+              <div class="col-lg-8 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="100"> 
+                {{ featureData.0.content|safe }}
+              </div>
+             
+              <div class="col-md-4 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
+                <br></br>
+                <br> </br>
+                <br> </br>
+                <img src="{% static 'assets/img/cicd-image.png' %}" alt="" class="img-fluid"  >
+              </div>
+              <div class="col-lg-4 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
+                <img src="assets/img/features-1.svg" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div><!-- End Tab Content 1 -->
+
+          {% for feature in featureData|slice:"1:6" %}
+          <div class="tab-pane" id="tab-{{ feature.id }}">
+            <div class="row gy-4">
+              <div class="col-lg-8 order-2 order-lg-1">
+             
+               
+                 {{ feature.content|safe  }}
+              </div>
+              <div class="col-lg-4 order-1 order-lg-2 text-center">
+                <img src="assets/img/features-2.svg" alt="" class="img-fluid">
+              </div>
+            </div>
+           
+          </div><!-- End Tab Content 2 -->
+
+          {% endfor %}
+         </div> 
+        </div>
+     
+    </section><!-- End Features Section -->
+
+    <!-- ======= Services Section ======= -->
+    {% if services %}
+    <section id="services" class="services">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Our Services</h2>
+          <p>We provide serviecs that can help you develop and deleiver your product faster, secure and in a cost effetive way</p>
+        </div>
+
+        <div class="row gy-5">
+          {% for n in serviceData %}
+          
+          <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200" >
+            <div class="service-item">
+              <div class="details position-relative">
+                <div class="icon">
+                  <i class="bi {{ n.service_icon }}"></i>
+                </div>
+                <a href="{% url n.service_url %}" class="stretched-link">
+                  <h3>{{ n.service_name }}</h3>
+                </a>
+                <p> {{ n.service_details|safe }}
+                </p>
+              </div>  
+            </div>
+          </div>
+         
+          {% endfor %}
+  </section>
+     {% endif%}
+
+        
+         
+        
+
+
+     
+
+    <!-- ======= Testimonials Section ======= -->
+    {% if testimonials %}
+    <section id="testimonials" class="testimonials">
+      <div class="container" data-aos="fade-up">
+
+        <div class="testimonials-slider swiper">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="{% static 'mystatic/img/testimonials/testimonials-1.jpg' %}" class="testimonial-img" alt="">
+                <h3>Saul Goodman</h3>
+                <h4>Ceo &amp; Founder</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+            <!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="{% static 'assets/img/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="">
+                <h3>Sara Wilsson</h3>
+                <h4>Designer</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+            <!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="{% static 'assets/img/testimonials/testimonials-3.jpg' %}" class="testimonial-img" alt="">
+                <h3>Jena Karlis</h3>
+                <h4>Store Owner</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+            <!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="{% static 'assets/img/testimonials/testimonials-4.jpg' %}" class="testimonial-img" alt="">
+                <h3>Matt Brandon</h3>
+                <h4>Freelancer</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+            <!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="{% static 'assets/img/testimonials/testimonials-5.jpg' %}" class="testimonial-img" alt="">
+                <h3>John Larson</h3>
+                <h4>Entrepreneur</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+            <!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section>
+    {% endif %}
+    <!-- End Testimonials Section -->
+
+    <!-- ======= Pricing Section ======= -->
+    {% if pricing %}
+    <section id="pricing" class="pricing">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Our Pricing</h2>
+          <p>Architecto nobis eos vel nam quidem vitae temporibus voluptates qui hic deserunt iusto omnis nam voluptas asperiores sequi tenetur dolores incidunt enim voluptatem magnam cumque fuga.</p>
+        </div>
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="pricing-item">
+
+              <div class="pricing-header">
+                <h3>Free services</h3>
+                <h4><sup>$</sup>0<span> / month</span></h4>
+              </div>
+
+              <ul>
+                <li><i class="bi bi-dot"></i> <span>CICD consultancy</span></li>
+                <li><i class="bi bi-dot"></i> <span>Kubernetes consultancy </span></li>
+                <li><i class="bi bi-dot"></i> <span>IoC</span></li>
+                <li class="na"><i class="bi bi-x"></i> <span>Secuirty </span></li>
+                <li class="na"><i class="bi bi-x"></i> <span>Monitoring & Observability</span></li>
+              </ul>
+
+              <div class="text-center mt-auto">
+                <a href="#" class="buy-btn">Buy Now</a>
+              </div>
+
+            </div>
+          </div>
+          <!-- End Pricing Item -->
+
+          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="400">
+            <div class="pricing-item featured">
+
+              <div class="pricing-header">
+                <h3>Business Plan</h3>
+                <h4><sup>$</sup>29<span> / month</span></h4>
+              </div>
+
+              <ul>
+                <li><i class="bi bi-dot"></i> <span>Quam adipiscing vitae proin</span></li>
+                <li><i class="bi bi-dot"></i> <span>Nec feugiat nisl pretium</span></li>
+                <li><i class="bi bi-dot"></i> <span>Nulla at volutpat diam uteera</spa>
+                </li>
+                <li><i class="bi bi-dot"></i> <span>Pharetra massa massa ultricies</spa>
+                </li>
+                <li><i class="bi bi-dot"></i> <span>Massa ultricies mi quis hendrerit</span></li>
+              </ul>
+
+              <div class="text-center mt-auto">
+                <a href="#" class="buy-btn">Buy Now</a>
+              </div>
+
+            </div>
+          </div>
+          <!-- End Pricing Item -->
+
+          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="600">
+            <div class="pricing-item">
+
+              <div class="pricing-header">
+                <h3>Developer Plan</h3>
+                <h4><sup>$</sup>49<span> / month</span></h4>
+              </div>
+
+              <ul>
+                <li><i class="bi bi-dot"></i> <span>Quam adipiscing vitae proin</span></li>
+                <li><i class="bi bi-dot"></i> <span>Nec feugiat nisl pretium</span></li>
+                <li><i class="bi bi-dot"></i> <span>Nulla at volutpat diam uteera</span></li>
+                <li><i class="bi bi-dot"></i> <span>Pharetra massa massa ultricies</span></li>
+                <li><i class="bi bi-dot"></i> <span>Massa ultricies mi quis hendrerit</span></li>
+              </ul>
+
+              <div class="text-center mt-auto">
+                <a href="#" class="buy-btn">Buy Now</a>
+              </div>
+
+            </div>
+          </div>
+          {% endif %}
+          <!-- End Pricing Item -->
+
+        </div>
+
+      </div>
+    </section>
+    <!-- End Pricing Section -->
+
+    <!-- ======= F.A.Q Section ======= -->
+    {% if faq %}
+    <section id="faq" class="faq">
+      <div class="container-fluid" data-aos="fade-up">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
+
+            <div class="content px-xl-5">
+              <h3>Frequently Asked <strong>Questions</strong></h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+              </p>
+            </div>
+
+            <div class="accordion accordion-flush px-xl-5" id="faqlist">
+
+              <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
+                    <i class="bi bi-question-circle question-icon"></i>
+                    Non consectetur a erat nam at lectus urna duis?
+                  </button>
+                </h3>
+                <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                  <div class="accordion-body">
+                    Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                  </div>
+                </div>
+              </div> 
+              <!-- # Faq item-->
+
+              <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
+                    <i class="bi bi-question-circle question-icon"></i>
+                    Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?
+                  </button>
+                </h3>
+                <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                  <div class="accordion-body">
+                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                  </div>
+                </div>
+              </div> 
+              <!-- # Faq item-->
+
+            </div>
+
+          </div>
+
+
+      </div>
+     
+    </section>
+    {% endif %}
+    <!-- End F.A.Q Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    {% if  portfolio %}
+   <section id="portfolio" class="portfolio" data-aos="fade-up">
+
+      <div class="container">
+
+        <div class="section-header">
+          <h2>certifications</h2>
+          <p>I hold industry-recognized certifications, including CKA, CKAD, and KCNA, demonstrating my expertise in Kubernetes, cloud-native technologies, and automation. These certifications validate my ability to design, manage, and optimize scalable, secure, and high-performance infrastructure solutions.</p>
+        </div>
+
+     
+
+      <div class="container-fluid" data-aos="fade-up" data-aos-delay="200">
+
+        <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order">
+
+          <ul class="portfolio-flters">
+            <li data-filter="*" class="filter-active">All</li>
+            <li data-filter=".filter-app">K8s</li>
+            <li data-filter=".filter-product">VMWARE</li>
+            <li data-filter=".filter-branding">CISCO</li>
+            <li data-filter=".filter-books">Redhat</li>
+            <li data-filter=".filter-books">AWS</li>
+          </ul> 
+          <!-- End Portfolio Filters -->
+
+          <div class="row g-0 portfolio-container">
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-product">
+              <img src="{% static 'assets/img/portfolio/vmware.jpg' %}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Product 1</h4>
+                <a href="{% static 'assets/img/portfolio/vmware.jpg' %}" title="Product 1" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+             <!-- End Portfolio Item -->
+
+            <!-- <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-branding">
+              <img src="{% static 'assets/img/portfolio/branding-1.jpg' %}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Branding 1</h4>
+                <a href="{% static 'assets/img/portfolio/branding-1.jpg' %}" title="Branding 1" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>  -->
+            <!-- End Portfolio Item -->
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-books">
+              <img src="{% static 'assets/img/portfolio/RHCSA.jpeg' %}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>RHECSA</h4>
+                <a href="assets/img/portfolio/RHCSA.jpeg" title="Branding 1" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+            <!-- End Portfolio Item -->
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-app">
+              <img src="{% static 'assets/img/portfolio/app-2.jpeg' %}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>KCNS</h4>
+                <a href="{% static  'assets/img/portfolio/app-2.jpeg' %}" title="App 2" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div> 
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-app">
+              <img src="{% static 'assets/img/portfolio/app-1.jpeg' %}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>CKA</h4>
+                <a href="{% static  'assets/img/portfolio/app-1.jpeg' %}" title="App 2" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div> 
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-app">
+              <img src="{% static 'assets/img/portfolio/ckad.jpeg' %}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>CKAD</h4>
+                <a href="{% static  'assets/img/portfolio/ckad.jpeg' %}" title="App 2" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div> 
+
+
+        
+            <!-- End Portfolio Item -->
+
+            <!-- <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-product">
+              <img src="{% static 'assets/img/portfolio/product-2.jpg' %}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Product 2</h4>
+                <a href="{% static 'assets/img/portfolio/product-2.jpg' %}" title="Product 2" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>  -->
+
+            
+
+          
+            <!-- End Portfolio Item -->
+
+          
+          </div> 
+          <!-- End Portfolio Container -->
+
+        </div>
+  
+      </div>
+    </div>
+    </section> 
+    {% endif %}
+      <!-- End Portfolio Section -->
+  
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team">
+      {% if team %}
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Our Team</h2>
+          <p>Architecto nobis eos vel nam quidem vitae temporibus voluptates qui hic deserunt iusto omnis nam voluptas asperiores sequi tenetur dolores incidunt enim voluptatem magnam cumque fuga.</p>
+        </div>
+
+        <div class="row gy-5">
+
+          <div class="col-xl-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay="200">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="{% static 'assets/img/team/team-1.jpg' %}" class="img-fluid" alt="">
+              </div>
+              <div class="member-info">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+                <h4>Walter White</h4>
+                <span>Chief Executive Officer</span>
+              </div>
+            </div>
+          </div>
+          <!-- End Team Member -->
+
+          <div class="col-xl-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay="400">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="{% static 'assets/img/team/team-2.jpg' %}" class="img-fluid" alt="">
+              </div>
+              <div class="member-info">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+                <h4>Sarah Jhonson</h4>
+                <span>Product Manager</span>
+              </div>
+            </div>
+          </div>
+           <!-- End Team Member -->
+
+          <div class="col-xl-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay="600">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="{% static 'assets/img/team/team-3.jpg' %}" class="img-fluid" alt="">
+              </div>
+              <div class="member-info">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+                <h4>William Anderson</h4>
+                <span>CTO</span>
+              </div>
+            </div>
+          </div> 
+          <!-- End Team Member -->
+
+        </div>
+
+      </div>
+    </section>
+    {% endif %}
+    <!-- End Team Section -->
+   {%  if recentblogs %}
+    <!-- ======= Recent Blog Posts Section ======= -->
+    <section id="recent-blog-posts" class="recent-blog-posts">
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Blog</h2>
+          <p>Recent posts form our Blog</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="post-box">
+              <div class="post-img"><img src="{% static 'assets/img/blog/blog-1.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="meta">
+                <span class="post-date">Tue, December 12</span>
+                <span class="post-author"> / Julia Parker</span>
+              </div>
+              <h3 class="post-title">Eum ad dolor et. Autem aut fugiat debitis voluptatem consequuntur sit</h3>
+              <p>Illum voluptas ab enim placeat. Adipisci enim velit nulla. Vel omnis laudantium. Asperiores eum ipsa est officiis. Modi cupiditate exercitationem qui magni est...</p>
+              <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="post-box">
+              <div class="post-img"><img src="assets/img/blog/blog-2.jpg" class="img-fluid" alt=""></div>
+              <div class="meta">
+                <span class="post-date">Fri, September 05</span>
+                <span class="post-author"> / Mario Douglas</span>
+              </div>
+              <h3 class="post-title">Et repellendus molestiae qui est sed omnis voluptates magnam</h3>
+              <p>Voluptatem nesciunt omnis libero autem tempora enim ut ipsam id. Odit quia ab eum assumenda. Quisquam omnis aliquid necessitatibus tempora consectetur doloribus...</p>
+              <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="600">
+            <div class="post-box">
+              <div class="post-img"><img src="{% static 'assets/img/blog/blog-3.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="meta">
+                <span class="post-date">Tue, July 27</span>
+                <span class="post-author"> / Lisa Hunter</span>
+              </div>
+              <h3 class="post-title">Quia assumenda est et veritatis aut quae</h3>
+              <p>Quia nam eaque omnis explicabo similique eum quaerat similique laboriosam. Quis omnis repellat sed quae consectetur magnam veritatis dicta nihil...</p>
+              <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section> 
+    {% endif %}
+    <!-- End Recent Blog Posts Section -->
+
+    <!-- ======= Contact Section ======= -->
+    {% if contact %}
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-header">
+          <h2>Contact Me</h2>
+          <p>If you want to learn more about my work. Feel free to contact me for a discussion.</p>
+        </div>
+
+      
+
+      <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1778.883336752597!2d77.03892317006157!3d28.419645755394978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d229c4a61db17%3A0x877fd1e1cd668cac!2sSpazedge!5e0!3m2!1sen!2sin!4v1681872451197!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div><!-- End Google Maps -->
+
+      <div class="container">
+
+        <div class="row gy-5 gx-lg-5">
+
+          <div class="col-lg-4">
+
+            <div class="info">
+              <h3>Get in touch</h3>
+              <p>Please leave a message containing your contact details and I will reach out to you as soon as possible.</p>
+
+              <div class="info-item d-flex">
+                <i class="bi bi-geo-alt flex-shrink-0"></i>
+                <div>
+                  <h4>Location:</h4>
+                  <p>{{ addressData.0.office_address }}</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="info-item d-flex">
+                <i class="bi bi-envelope flex-shrink-0"></i>
+                <div>
+                  <h4>Email:</h4>
+                  <p>{{ addressData.0.email_id }}</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="info-item d-flex">
+                <i class="bi bi-phone flex-shrink-0"></i>
+                <div>
+                  <h4>Call:</h4>
+                  <p>{{ addressData.0.phone }}</p>
+                </div>
+              </div><!-- End Info Item -->
+
+            </div>
+
+          </div>
+     
+      
+
+          <!-- contact.html -->
+          
+<!--           
+            
+              {% if messages %}
+                 {% for message in messages %}
+                      <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                  {% endfor %}
+              {% endif %}
+              <form method="post" novalidate>
+                  {% csrf_token %}
+                  {{ contact_form.as_p }}
+                  <button type="submit">Send</button>
+              </form>
+           
+          </body>
+          </html> -->
+
+  <style>
+   
+  </style>
+
+
+          <div class="col-lg-8">
+      
+
+            <form method="post" role="form">
+              {% csrf_token %}
+
+
+              <div class="row ">
+                <div class="col-md-4 form-group">
+                  {{ contact_form.name }}
+                  <!-- <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required> -->
+                </div>
+                <div class="col-md-2 form-group mt-3 mt-md-0">
+                  <!-- <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required> -->
+                  {{ contact_form.email }}
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <!-- <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required> -->
+                {{ contact_form.subject }}
+              </div>
+              <div class="form-group mt-3">
+                <!-- <textarea class="form-control" name="message" placeholder="Message" required></textarea> -->
+                {{ contact_form.message }}
+                <!-- <button type="submit">Send</button> -->
+              </div>
+
+              <div class="my-3">
+                {% if messages %}
+                {% for message in messages %}
+                <p id="message">{{ message }}</p>
+
+               
+                {% endfor %}
+
+                <!-- <div class="loading">Loading</div> -->
+                <div class="error-message"> {{ contact_form.errors }}</div>
+                <!-- <div class="sent-message">Your message has been sent. Thank you!</div> -->
+                {% endif %}
+              </div>
+              <div class="col-md-2 text-center d-flex"><button type="submit">Send</button></div>
+            
+            </form>
+          </div>
+          <!-- End Contact Form -->
+       
+        </div>
+
+      </div>
+    </div>
+    
+    </section>
+    {% endif %}
+<!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+{% endblock %}

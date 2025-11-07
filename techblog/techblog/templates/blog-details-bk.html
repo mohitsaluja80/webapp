@@ -1,0 +1,193 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block "content" %}
+
+<head>
+  <!-- <link href="{% static 'ckeditor/ckeditor/plugins/codesnippet/lib/highlight/styles/default.css' %}" rel="stylesheet">
+  <script src="{% static 'ckeditor/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js' %}"></script>  -->
+  <script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+</head>
+
+<!-- <link href="{% static 'ckeditor/ckeditor/plugins/codesnippet/lib/highlight/styles/default.css' %}" rel="stylesheet"> -->
+<script>hljs.initHighlightingOnLoad();</script>
+
+<main id="main">
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>Blog Details</h2>
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li>Blog Details</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blog Details Section -->
+  <section id="blog" class="blog">
+    <div class="container" data-aos="fade-up">
+      <div class="row g-5">
+        {% for post in Post %}
+        <div class="col-lg-8">
+          <article class="blog-details">
+            <!-- <div class="post-img">
+              <img src="{% static 'assets/img/blog/blog-1.jpg' %}" alt="" class="img-fluid">
+            </div> -->
+            <h2 class="title">{{ post.title }}</h2>
+            <div class="meta-top">
+              <ul>
+                <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">{{ post.author }}</a></li>
+                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html">{{ post.date_posted|timesince }}</a></li>
+                <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">{{ comments_count }}</a></li>
+                <li class="d-flex align-items-center"><i class="bi bi-hand-thumbs-up-fill"></i> <a href="{% url 'add_like' blog.id %}">{{ blog.likes.count }}
+                  <form method="POST" action="{% url 'add_like' blog.id %}">
+                    {% csrf_token %}
+                    {% if user in blog.likes.all %}
+                    like
+                    {% else %}
+                    {% endif %}
+                  </form>
+                </a></li>
+              </ul>
+            </div>
+            <div class="content">
+              <p>{{ post.content|safe }}</p>
+            </div>
+
+            <!-- Edit Link - Only Visible to Post Author -->
+            {% if request.user.is_authenticated and request.user == post.author %}
+              <a href="{% url 'edit_post' post.id %}" class="btn btn-primary">Edit Post</a>
+            {% endif %}
+
+            <div class="meta-bottom">
+              <i class="bi bi-folder"></i>
+              <ul class="cats">
+                <li><a href="#">Business</a></li>
+              </ul>
+              <i class="bi bi-tags"></i>
+              <ul class="tags">
+                {% for tag in tags %}
+                <li><a href="#">{{ tag }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+          </article>
+
+          <div class="comments">
+            <h4 class="comments-count">{{ comments_count }} Comments</h4>
+            {% for comment in comments %}
+            <div id="comment-1" class="comment">
+              <div class="d-flex">
+                <div class="comment-img"><img src="{% static 'assets/img/blog/comments-1.jpg' %}" alt=""></div>
+                <div>{{ comment.date_posted }}<h4>{{ comment.content|safe }}</h4></div>
+              </div>
+            </div>
+            <div class="row" id="artical_row">
+              <article class="blog-details">
+                {% for reply in comment.replies.all %}
+                <div id="comment-reply-1" class="comment comment-reply">
+                  <div class="d-flex">
+                    <div class="comment-img"><img src="{% static 'assets/img/blog/comments-3.jpg' %}" alt=""></div>
+                    <div>
+                      <h5><a href="#reply">{{ reply.user }}</a> <a href="#reply" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                      <p>{{ reply.date_posted }}</p>
+                      <p>{{ reply.content|safe }}</p>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </article>
+            </div>
+            <section id="reply">
+              <form method="POST" action="{% url 'add_reply' comment.id %}">
+                {% csrf_token %}
+                {{ reply_form }}
+                <div class="row">
+                  <div class="col-lg-3">
+                    <button type="submit" class="btn btn-primary">Reply</button>
+                  </div>
+                </div>
+              </form>
+            </section>
+            {% empty %}
+            {% endfor %}
+            <div class="reply-form">
+              <h4>Leave a Reply</h4>
+              <form method="POST" action="{% url 'add_comment' blog.id %}">
+                {% csrf_token %}
+                {{ comment_form.content }}
+                <div class="row">
+                  <div class="col-lg-3">
+                    <button type="submit" class="btn btn-primary">Post Comment</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        <div class="col-lg-4">
+          <div class="sidebar">
+            <div class="sidebar-item search-form">
+              <h3 class="sidebar-title">Search</h3>
+              <form action="" class="mt-3">
+                <input id="search" name="search" type="text">
+                <button type="submit"><i class="bi bi-search"></i></button>
+              </form>
+            </div>
+            <div class="sidebar-item categories">
+              <h3 class="sidebar-title">Categories</h3>
+              <ul class="mt-3">
+                {% for key, value in tag_data.items %}
+                <li><a href="#">{{ key }} <span>{{ value }}</span></a></li>
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="sidebar-item recent-posts">
+              <h3 class="sidebar-title">Recent Posts</h3>
+              <div class="mt-3">
+                {% for post in Post %}
+                <div class="post-item mt-3">
+                  <img src="{% static 'assets/img/blog/blog-recent-1.jpg' %}" alt="" class="flex-shrink-0">
+                  <div>
+                    <h4><a href="blog-details.html">{{ post.title }}</a></h4>
+                    {{ post.date_posted }}
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="sidebar-item tags">
+              <h3 class="sidebar-title">Tags</h3>
+              <ul class="mt-3">
+                {% for tag in all_tags %}
+                <li><a href="{% url 'blogsfilter' tag.id %}">{{ tag }}</a></li>
+                {% endfor %}
+                <li><a href="{% url 'blogs' %}">All</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+{% endblock %}
+
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('.reply-toggle').click(function() {
+    $(this).next('.reply-form').find('.reply-input').prop('disabled', false).focus();
+  });
+});
+</script>

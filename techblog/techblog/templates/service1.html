@@ -1,0 +1,70 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+
+  {% block "content" %}
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="container">
+          {% if serviceData %}
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>{{ serviceData.0.service_name }}</h2>
+          {% endif %}
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>Inner Page</li>
+          </ol>
+        </div>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Section ======= -->
+    <section class="inner-page">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+         <!--  <h2>Inner Page</h2> -->
+         <section id="featured-services" class="featured-services">
+          <div class="container">
+            <img src="{% static '/assets/img/cicd-image.png' %}"  alt="" class="img-fluid" height="400" width="400">
+           
+            <div class="row gy-4">
+              {% for service in service_description %}
+              <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out">  
+                <div class="service-item position-relative">
+                  <div class="icon"><i class="bi {{ service.category_icon }}"></i></div>
+                  <h4><a class="stretched-link">{{ service.category_title }} </a></h4>
+                  <p>{{ service.category_description|truncatechars:100|safe }}</p>
+                  <div class="read-more mt-auto align-self-end">
+                  <a href="{#}">Read More</a>
+                  </div>
+                </div>
+               
+              </div><!-- End Service Item -->
+             
+              {% endfor %}
+            </div>
+          
+          </div>
+          
+        <!-- <a class="btn-getstarted scrollto" href="#cal">Book a meeting</a> -->
+       <!-- Calendly inline widget begin -->
+<!--<div id="cal" class="calendly-inline-widget" data-url="https://calendly.com/mohitsaluja?hide_landing_page_details=1&hide_gdpr_banner=1&primary_color=#0ea2bd" style="min-width:320px;height:630px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script> -->
+
+<!-- Calendly link widget begin -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mohitsaluja/30min'});return false;">Book Meeting</a>
+<!-- Calendly link widget end -->
+
+<!-- Calendly inline widget end -->
+      </div>
+    </section><!-- End Inner Page -->
+
+  </main><!-- End #main -->
+
+  {% endblock %}
