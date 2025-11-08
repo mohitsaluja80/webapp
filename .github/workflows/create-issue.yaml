@@ -1,7 +1,11 @@
 name: Create Issue on Build Failure
+permissions:
+  issues: write
 on:
   workflow_run:
-    workflows: ["Docker Image CI"]
+    # Use the workflow filename (not the display name) so this runs when the CI workflow
+    # file (ci.yaml) completes. Replace with your CI workflow filename if different.
+    workflows: ["ci.yaml"]
     types:
       - completed
 jobs:
