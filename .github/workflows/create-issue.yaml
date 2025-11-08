@@ -1,0 +1,28 @@
+name: Create Issue on Build Failure
+on:
+  workflow_run:
+    workflows: ["Docker Image CI"]
+    types:
+      - completed
+jobs:
+  create-issue:
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create GitHub Issue
+        uses: peter-evans/create-issue-from-file@v4
+        with:
+          title: "Build Failure in Docker Image CI"
+          content-filepath: .github/issue-templates/build-failure.md
+          labels: bug, ci
+          assignees: ${{ github.actor }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          body-includes: |
+            **Workflow:** ${{ github.event.workflow_run.name }}
+            **Run ID:** ${{ github.event.workflow_run.id }}
+            **Repository:** ${{ github.repository }}
+            **Actor:** ${{ github.event.workflow_run.actor }}
+            **Conclusion:** ${{ github.event.workflow_run.conclusion }}
+            **Link to Run:** ${{ github.event.workflow_run.html_url }}
+          title-prefix: "[CI Failure]"
+          duplicate-issue-action: ignore
